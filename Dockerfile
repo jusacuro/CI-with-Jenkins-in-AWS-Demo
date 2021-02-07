@@ -1,4 +1,4 @@
-FROM jusacuro/assignment5
+FROM assignment5
 RUN echo "Severname localhost" >> /etc/httpd/conf/httpd.conf
 COPY . /project /var/www/html
 CMD apachectl -D FOREGROUND
