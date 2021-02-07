@@ -1,16 +1,5 @@
-FROM node
-
-RUN apt-get update && apt-get upgrade -y \
-    && apt-get clean
-
-RUN mkdir /app
-WORKDIR /app
-
-COPY package.json /app/
-RUN npm install --only=production
-
-COPY src /app/src
-
-EXPOSE 3000
-
-CMD [ "npm", "start" ]
+FROM jusacuro/assignment5
+RUN echo "Severname localhost" >> /etc/httpd/conf/httpd.conf
+COPY . /project /var/www/html
+CMD apachectl -D FOREGROUND
+EXPOSE 80
